@@ -26,12 +26,12 @@
   # RVM
   #
 
-  if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
     # Unset AUTO_NAME_DIRS since auto adding variable-stored paths to ~
-    # list conflicts with RVM. See https://rvm.io/integration/zsh.
+    # list conflicts with RVM. See https://rvm.io/integration/zsh
     unsetopt AUTO_NAME_DIRS
     # Load RVM into the shell session
-    source "$HOME/.rvm/scripts/rvm"
+    source "${HOME}/.rvm/scripts/rvm"
     # Set RVM aliases
     alias rvmi='rvm install'
   fi
@@ -44,12 +44,14 @@
   alias rb='ruby'
 
   # Bundler
-  alias rbb='bundle'
-  alias rbbc='bundle clean'
-  alias rbbe='bundle exec'
-  alias rbbi='bundle install --path vendor/bundle'
-  alias rbbl='bundle list'
-  alias rbbo='bundle open'
-  alias rbbp='bundle package'
-  alias rbbu='bundle update'
+  if (( ${+commands[bundle]} )); then
+    alias rbb='bundle'
+    alias rbbc='bundle clean'
+    alias rbbe='bundle exec'
+    alias rbbi='bundle install --path vendor/bundle'
+    alias rbbl='bundle list'
+    alias rbbo='bundle open'
+    alias rbbp='bundle package'
+    alias rbbu='bundle update'
+  fi
 }
