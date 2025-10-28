@@ -2,8 +2,6 @@
 
 Provides `ruby` and `bundler` aliases and initializes `rbenv` and/or `rvm` if already installed.
 
-If available, this module configures Ruby to use Homebrew's `openssl@1.1` dir.
-
 ## Aliases
 
 - `rb` is short for `ruby`.
